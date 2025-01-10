@@ -32,4 +32,25 @@ contract ElectroV2Helper {
         path[0] = router.WETH();
         path[1] = token;
     }
+
+    function getReversePath(address token)
+        internal
+        view
+        returns (address[] memory path)
+    {
+        path = new address[](2);
+        path[0] = token;
+        path[1] = router.WETH();
+    }
+
+    function getMultiPath(address tokenFrom, address tokenTo)
+        internal
+        view
+        returns (address[] memory path)
+    {
+        path = new address[](3);
+        path[0] = tokenFrom;
+        path[1] = router.WETH();
+        path[2] = tokenTo;
+    }
 }
